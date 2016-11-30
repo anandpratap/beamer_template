@@ -1,0 +1,119 @@
+\documentclass[10pt,english]{beamer}
+%\usefonttheme[onlymath]{serif}
+%\usetheme{bjeldbak}
+\usetheme[informal]{gc3}
+\usepackage{gc3}
+
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{rotating}
+
+\usepackage{color}
+\newlength{\overwritelength}
+\newlength{\minimumoverwritelength}
+\setlength{\minimumoverwritelength}{1cm}
+\newcommand{\overwrite}[3][red]{%
+  \settowidth{\overwritelength}{$#2$}%
+  \ifdim\overwritelength<\minimumoverwritelength%
+    \setlength{\overwritelength}{\minimumoverwritelength}\fi%
+  \stackrel
+    {%
+      \begin{minipage}{\overwritelength}%
+        \color{#1}\centering\small #3\\%
+        \rule{1pt}{9pt}%
+      \end{minipage}}
+    {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}}
+
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage[customcolors,shade]{hf-tikz}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{shapes.geometric, arrows,chains}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\be}{\ensuremath{{\boldsymbol\beta}}\xspace}
+\newcommand{\ret}{\ensuremath{ Re_{\theta} \xspace}}
+\renewcommand{\bm}{\ensuremath{{\boldsymbol\beta_{MAP}}}\xspace}
+
+\newcommand{\mat}[1]{{\ensuremath{\bf{ #1}}}}
+\title{Machine Learning-Assisted Predictions of Turbulent Flows over Airfoils}
+\subtitle{APS DFD 2016}
+\date{\today}
+
+\author{\protect\textbf{Anand Pratap Singh\inst{1}\and Shivaji Medida\inst {2}\and Karthik Duraisamy \inst{1}} \+\+}
+\institute{\inst{1} Computational Aerosciences Lab\\ University of Michigan, Ann Arbor, MI  \and \inst{2} Altair Engineering, Inc, Sunnyvale, CA}
+
+\DeclareSymbolFont{letters}{OML}{ztmcm}{m}{it}
+\DeclareSymbolFont{operators}{OML}{ztmcm}{m}{it}
+\DeclareSymbolFontAlphabet{\mathnormal}{letters}
+
+\tikzset{
+  startstop/.style={
+    rectangle, 
+    rounded corners,
+    minimum width=3cm, 
+    minimum height=1cm,
+    align=center, 
+    draw=black, 
+    fill=red!30
+    },
+  process/.style={
+    rectangle, 
+    minimum width=3cm, 
+    minimum height=1cm, 
+    align=center, 
+    draw=black, 
+    fill=blue!30
+    },
+  decision/.style={
+    rectangle, 
+    minimum width=3cm, 
+    minimum height=1cm, align=center, 
+    draw=black, 
+    fill=green!30
+    },
+  arrow/.style={thick,->,>=stealth},
+  dec/.style={
+    ellipse, 
+    align=center, 
+    draw=black, 
+    fill=green!30
+    },
+}
+
+\definecolor{mgreen}{rgb}{0.0    , 0.6, 0.0}
+\begin{document}
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Axisymmetric Transonic Bump}
+\begin{itemize}
+\item Modify Base SA model: $g = r + \beta(x, y) c_{w2}(r^6-r)$
+\item Infer $\beta(x, y)$ by minimizing $||C_{p, RANS} - C_{p, DNS}||$
+\item Resulting model $\rightarrow$ Inverse SA
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \alert{This is an alert!}
+  \HL{and this is how you highlight}, \HLg{there} \HLm{are} \HLb{bunch} of other color options!
+\end{frame}
+
+\end{document}
